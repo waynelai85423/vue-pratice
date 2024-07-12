@@ -1,0 +1,24 @@
+{
+  "name": "wayne_ui",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "dev": "prettier --write src/**/*.{js,vue} && gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "gridsome": "^0.7.13",
+    "vite": "^5.3.3",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@gridsome/plugin-sitemap": "^0.2.3",
+    "gridsome-plugin-manifest": "^0.3.4",
+    "gridsome-plugin-service-worker": "^0.1.4",
+    "prettier": "^1.19.1",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
