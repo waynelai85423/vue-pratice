@@ -8,9 +8,8 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "@vitejs/plugin-vue": "^5.0.5",
+    "dotenv": "^16.4.5",
     "gridsome": "^0.7.13",
-    "vite": "^5.3.3",
     "vue": "^2.6.10"
   },
   "devDependencies": {

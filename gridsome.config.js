@@ -1,9 +1,9 @@
+
+require("dotenv").config();
 module.exports = {
     siteName: 'My Gridsome Site',
     plugins: [],
-    server: {
-        port: 3000
-    }
+    port: process.env.PORT || "8080",
 }
 
 console.log('adadsad')
