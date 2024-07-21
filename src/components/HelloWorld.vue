@@ -16,6 +16,7 @@ defineProps({
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
     </h3>
     <div><v-btn @click="apiTest">consumer api test</v-btn></div>
+    <div><v-btn @click="errorTest">errorTest</v-btn></div>
   </div>
 </template>
 <script>
@@ -25,6 +26,14 @@ export default {
     apiTest() {
       let data = consumer.consumerSelectAll();
       console.log("data", data);
+    },
+    errorTest() {
+      try {
+        consumer.errorTest();
+      } catch (e) {
+        console.log('312');
+        alert(e);
+      }
     }
   }
 };
