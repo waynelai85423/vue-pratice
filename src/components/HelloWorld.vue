@@ -15,9 +15,20 @@ defineProps({
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
     </h3>
+    <div><v-btn @click="apiTest">consumer api test</v-btn></div>
   </div>
 </template>
-
+<script>
+import consumer from "~/api/consumer.api";
+export default {
+  methods: {
+    apiTest() {
+      let data = consumer.consumerSelectAll();
+      console.log("data", data);
+    }
+  }
+};
+</script>
 <style scoped>
 h1 {
   font-weight: 500;
