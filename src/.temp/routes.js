@@ -1,4 +1,4 @@
-const c1 = () => import(/* webpackChunkName: "page--node-modules-gridsome-app-pages-404-vue" */ "C:\\WayneProject\\wayne_ui\\node_modules\\gridsome\\app\\pages\\404.vue")
+const c1 = () => import(/* webpackChunkName: "page--node-modules-gridsome-app-pages-404-vue" */ "C:\\Users\\ASUS\\Desktop\\Wayne\\vue-pratice\\node_modules\\gridsome\\app\\pages\\404.vue")
 
 export default [
   {
