@@ -9,6 +9,7 @@ module.exports = {
             .plugin("env")
             .use(require.resolve("webpack/lib/EnvironmentPlugin"), [
                 "CONSUMER_BACKEND_URL",
+                "PATH_PREFIX"
             ]);
     }
 }

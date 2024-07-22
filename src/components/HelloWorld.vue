@@ -29,9 +29,10 @@ export default {
     },
     errorTest() {
       try {
+        throw new Error("这是一个异常！");
         consumer.errorTest();
       } catch (e) {
-        console.log('312');
+        console.log("312",e);
         alert(e);
       }
     }
