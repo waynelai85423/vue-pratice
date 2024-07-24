@@ -27,15 +27,13 @@ export default {
       let data = consumer.consumerSelectAll();
       console.log("data", data);
     },
-    errorTest() {
-      try {
-        throw new Error("这是一个异常！");
-        consumer.errorTest();
-      } catch (e) {
-        console.log("312",e);
-        alert(e);
-      }
-    }
+     async errorTest() {
+       try {
+         await consumer.errorTest();
+       } catch (e) {
+         alert(e.message);
+       }
+     }
   }
 };
 </script>

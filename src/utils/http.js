@@ -69,7 +69,6 @@ class AxiosClient {
             case 404:
             case 405:
             case 500:
-              console.log("_handleErr", err.response);
               return this._handleErr(err.response);
             default:
               return this._handleErr(err.response);
@@ -96,8 +95,6 @@ class AxiosClient {
   };
 
   _handleErr(err, message) {
-    console.error("get error: ", err);
-    // return err.data.message;
     return Promise.reject({
       status: err.data.status,
       message: err.data.message,
@@ -105,33 +102,6 @@ class AxiosClient {
       exception: err.data.exception,
       stackTrace: err.data.stackTrace
     });
-    // if (err.data?.apierror) {
-    //   return Promise.reject({
-    //     status: err.data.apierror.status,
-    //     message: err.data.apierror.message,
-    //     subErrors: err.data.apierror.subErrors,
-    //     exception: err.data.apierror.exception,
-    //     stackTrace: err.data.apierror.stackTrace
-    //   });
-    // } else if (err.data?.error) {
-    //   return Promise.reject({
-    //     status: "ERROR",
-    //     message: err.data.error,
-    //     subErrors: [
-    //       { message: message },
-    //       { message: err.data.error_description }
-    //     ].filter(se => se.message),
-    //     exception: "",
-    //     stackTrace: []
-    //   });
-    // } else {
-    //   return Promise.reject({
-    //     status: "ERROR",
-    //     message: message || `[${err.status}] ${err.statusText}`,
-    //     exception: "",
-    //     stackTrace: []
-    //   });
-    // }
   }
 }
 
