@@ -27,7 +27,21 @@ const errorTest = async (options = {}) => {
     .get(`${ENDPOINT}/error`);
 };
 
+const timeOutTest = async (options = {}) => {
+  options = {
+    originResponse: true,
+    ...options
+  };
+  return client
+    .request({
+      key: "consumer",
+      ...options
+    })
+    .get(`${ENDPOINT}/timeOutTest`);
+};
+
 export default {
   consumerSelectAll,
-  errorTest
+  errorTest,
+  timeOutTest
 };

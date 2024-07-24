@@ -17,23 +17,35 @@ defineProps({
     </h3>
     <div><v-btn @click="apiTest">consumer api test</v-btn></div>
     <div><v-btn @click="errorTest">errorTest</v-btn></div>
+    <div><v-btn @click="timeOutTest">timeOutTest</v-btn></div>
   </div>
 </template>
 <script>
 import consumer from "~/api/consumer.api";
 export default {
   methods: {
-    apiTest() {
-      let data = consumer.consumerSelectAll();
-      console.log("data", data);
+    async apiTest() {
+      try {
+        let data = await consumer.consumerSelectAll();
+        console.log("data", data);
+      } catch (e) {
+        alert(e.message);
+      }
     },
-     async errorTest() {
-       try {
-         await consumer.errorTest();
-       } catch (e) {
-         alert(e.message);
-       }
-     }
+    async errorTest() {
+      try {
+        await consumer.errorTest();
+      } catch (e) {
+        alert(e.message);
+      }
+    },
+    async timeOutTest() {
+      try {
+        await consumer.timeOutTest();
+      } catch (e) {
+        alert(e.message);
+      }
+    }
   }
 };
 </script>

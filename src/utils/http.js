@@ -12,7 +12,7 @@ class AxiosClient {
     let instance = axios.create({
       ...options,
       baseURL: `${process.env.PATH_PREFIX || ""}/${options.key}-api`,
-      timeout: 120000,
+      timeout: 5000,
       headers: {
         "Content-Type":
           options.contractType || "application/json;charset=UTF-8",
@@ -78,10 +78,11 @@ class AxiosClient {
 
         // timeout
         if (err.request) {
+          console.log("Timeout", err.request);
           if (err.request.readyState === 4 && err.request.status === 0) {
             // TODO: 處理請求 timeout
           }
-          return this._handleErr("net::ERR_REQUEST_TIMEOUT");
+          return this._handleErr("net::ERR_REQUEST_TIMEOUT", "TIME_OUT");
         }
 
         // 網路斷線
@@ -95,13 +96,22 @@ class AxiosClient {
   };
 
   _handleErr(err, message) {
-    return Promise.reject({
-      status: err.data.status,
-      message: err.data.message,
-      subErrors: err.data.subErrors,
-      exception: err.data.exception,
-      stackTrace: err.data.stackTrace
-    });
+    if (err.data) {
+      return Promise.reject({
+        status: err.data.status,
+        message: err.data.message,
+        subErrors: err.data.subErrors,
+        exception: err.data.exception,
+        stackTrace: err.data.stackTrace
+      });
+    } else {
+      return Promise.reject({
+        status: "ERROR",
+        message: message,
+        exception: "",
+        stackTrace: []
+      });
+    }
   }
 }
 
